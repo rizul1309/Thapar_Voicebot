@@ -1,53 +1,102 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - ask_for_cabin
-  - ask_for_lab
-
-actions:
-  - action_show_cabin_dir
-  - action_show_lab
-  
-
+- greet
+- ask_for_wifi
+- ask_for_block
+- ask_for_faculty
+- ask_for_lab
+- ask_for_cabin
+- goodbye
+- ask_for_timetable
+- ask_for_society
+- ask_for_restaurants
+- vague_statements
+- bot_challenge
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- ask_for_academic_calendar
+- ask_for_bank
+- ask_for_registary   
+- ask_for_library
+- ask_for_dispensary
+- ask_for_sports
+- ask_for_swimming
 entities:
-  - designation
-  - lab
-
+- block
+- department_name
+- designation
+- lab
+- wifi
 slots:
+  block:
+    type: text
+    auto_fill: true
+  department_name:
+    type: text
+    auto_fill: true
   designation:
     type: text
     auto_fill: true
   lab:
     type: text
     auto_fill: true
-
+  wifi:
+    type: text
+    auto_fill: true
 responses:
+  utter_link:
+  - text: https://myherupa.com/pages/wifi.html
   utter_greet:
-  - text: "Hey! How are you?"
-
+  - text: Hey! How can i help you?
+  - text: Hola Amigo What can i do for you?
+  - text: Hey friend , what do you need?
+  - text: Hey How are you?
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
   utter_did_that_help:
-  - text: "Did that help you?"
-
+  - text: Did That help you?
   utter_happy:
-  - text: "Great, carry on!"
-
-  utter_designation:
-  - text: "{designation}"
+  - text: Great, carry on and ask me if you need anything more!
   utter_goodbye:
-  - text: "Bye"
-
+  - text: It was nice helping you my college fellow mate and adios.
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+  - text: I am a bot, powered by these capstone group members.
+  utter_swag:
+  - text: Don't ask irrelevant stuff and better stick to queries regarding your college only. And if you still wanna do this please use google assistant or amazon alexa for your lame stuff.
+  - text: Buddy dont waste my as well as your precious time
+  - text: Are you freaking kidding me please stick to thapar related queries
+  utter_wifi:
+  - text: For {wifi} wifi password visit on the this link dude  https://myherupa.com/pages/wifi.html
+  utter_timetable:
+  - text: For the timetable please visit on the this link https://myherupa.com/pages/time-table.html#more-stuff
+  utter_society:
+  - text: To get detailed information of societies visit this link https://myherupa.com/pages/societies.html
+  utter_restaurants:
+  - text: Visit this  link to get information nearby restaurants https://myherupa.com/pages/food.html
+  utter_bank:
+  - text: "We have 2 banks SBI and ICICI both are on path way of B Block and G Block"
+  utter_registary:
+  - text: "We have Registary office on B Block 2nd Floor. Here your finance and documents  related queries will can be handled."
+  utter_library:
+  - text: "Library is in New Computer Building"
+  utter_dispensary:
+  - text: "Our medical Facilties are readily available in dispensary and it is next to sports room."
+  utter_sports:
+  - text: "Our Sports room is ajacent to Swimming Pool"
+  utter_swimming:
+  - text: "Swimming Pool is on left of G Hostel"
+actions:
+- action_show_block
+- action_show_cabin_dir
+- action_show_faculty
+- action_show_lab
+- action_wifi
+- action_timetable
+- action_society
+- action_restaurants
+version: '2.0'
